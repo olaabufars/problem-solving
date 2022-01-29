@@ -35,11 +35,11 @@ const arrInc = (arr) => {
 // 
 // ------------------------
 const roundDecimals = (arr) => {
-let i =0
-for(i in arr){
+for(let i =0;i < arr.length;i++){
     arr[i]=Math.round(arr[i])
+    
 }
-
+return arr
 
 }
 
@@ -108,17 +108,19 @@ for(i in arr){
 
 // ------------------------
 const employeesBonus = (arr) => {
-    let i =0
+
     for( let i =0;i < arr; i++){
-        let obj=arr[i];
-        if(obj.workHours>8){
-            obj.salary = parseInt(obj.salary)
-            obj.salary = obj.salary+100;
+        if(arr.workHours>8){
+            money = parseInt(arr[i].salary)
+            arr[i].salary = money+100;
         }else{
-            obj.salary = parseInt(obj.salary)
-            obj.salary = obj.salary+50;
+            money = parseInt(arr[i].salary)
+            arr[i].salary = money+50;
+        
         }
+
     }
+    return arr
 }
 
 // 4) ---------------------
@@ -136,13 +138,16 @@ const employeesBonus = (arr) => {
 // ==> 200
 // ------------------------
 const mostExpensive = (budget, mouseArray, keyBoardArray) => {
-   let mostmouseexpensive = Math.max(mouseArray);
-   
-   for(let i = 0;i < keyBoardArray;i++){
-       if( keyBoardArray[i]+ mostmouseexpensive == budget){
-           return keyBoardArray[i] + mostmouseexpensive
-       }
-   }
-}
+    let  max = 0
+   for(let i = 0;i < keyBoardArray.length;i++){
+       for(let j =0;j < mouseArray.length;j++){
+            if(keyBoardArray[i]+ mouseArray[j] > max  && keyBoardArray[i] + mouseArray[j] <= budget){
+                max = keyBoardArray[i] + mouseArray[j]
+                
+
+           };
+        }
+    }
+    return max}
 
 module.exports = { arrInc, roundDecimals, employeesBonus, mostExpensive };

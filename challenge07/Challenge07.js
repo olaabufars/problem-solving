@@ -85,13 +85,16 @@ return "my name is "+obj.firstName+" "+obj.lastName+" I am "+ obj.age +" YO, and
 
 // ------------------------
 const cvFormatter = (arr) => {
-    arr.forEach(element => {
-        if(element.yearsOfExperience > 1){
-            if(element.lastName == null){
-                element["fullName"] =element.firstName;}
-            else{element["fullName"]=element.firstName + element.lastName;}
-        }}
-    )};
+  for(let i =0 ; i<arr.length;i++){
+      if(arr[i].lastName == null){
+          arr[i]["fullName:"]=arr[i].firstName}
+          else{
+              arr[i]["fullName:"]=arr[i].firstName +" "+ arr[i].lastName
+          }    
+  }
+
+  return arr
+};
 
 
 
