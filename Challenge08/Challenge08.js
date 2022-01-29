@@ -28,14 +28,17 @@
 
 const customerAndAge = (obj) => {
     const propertyNames = Object.keys(obj);
-const value = Object.values(obj);
-for(let i in propertyNames){
-  propertyNames[i] = "Customer Name:"+propertyNames[i];
-  }
-for(let j in value){
-  propertyNames.push("Age :"+value[j]);}
-return propertyNames
-};
+    const value = Object.values(obj);
+    const full = [];
+    for(let i in propertyNames){
+      full.push("Customer Name :"+propertyNames[i]);
+      for(let j in value){
+        full.push("Age :"+value[j])
+      }
+    }
+   return full
+}
+
 
 
 // -------------------------------------------------------------------------------------------------------
@@ -62,8 +65,7 @@ return propertyNames
 // -------------------------------------------------------------------------------------------------------
 
 const getEntries = (obj) => {
-   return Object.entries(obj).forEach(([key, value]) => (`${key} ${value}`)
-};
+   return Object.entries(obj).forEach(([key, value]) => (`${key} ${value}`))}
 // -------------------------------------------------------------------------------------------------------
 // Challenge 03
 
@@ -102,19 +104,11 @@ const courses = [
 const getInfo = (arr) => {
   let coursesName = [];
   let studentsName = [];
-subobj = Object.keys(arr);
-for(let i in subobj){
-    if(arr[subobj[i]] == 'Python'|| arr[subobj[i]] == 'DotNet' || arr[subobj[i]] == 'JavaScript' || arr[subobj[i]] == 'Java'){
-        coursesName.push(subobj[i]);
-    };
-for(let j in subobj2){
-    if(arr[subobj2[j]] == 'David'|| arr[subobj[j]] == 'Van' || arr[subobj[j]] == 'Delaney' || arr[subobj[j]] == 'Keanna'){
-        studentsName.push(subobj2[j]);
-    };
-
-};
-
-};
+  
+for(let i = 0 ; i<arr.length;i++){
+  coursesName.push(arr[i].course)
+  studentsName.push(arr[i].Students)
+}
 
   return { coursesName, studentsName };
 };
@@ -138,8 +132,15 @@ for(let j in subobj2){
 //  ------------------------------------------------------------------------------------------------------
 
 const getStudents = (arr) => {
-  // write your code here
-
+  const info ={}
+  const pro = ['Python','Python','JavaScript','Java']
+  for(let i = 0 ; i <arr.length;i++){
+    for(let j = 0;j<pro.length;j++){
+      info.Student=arr[i]
+      info.course= pro[j]
+    }
+  }
+  return info
 };
 
 module.exports = {
